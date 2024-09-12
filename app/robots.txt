@@ -1,0 +1,13 @@
+# *
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: *
+Crawl-delay: 5
+Allow: /
+Disallow: /welcome-newsletter
+
+# Host
+Host: https://keanghor.vercel.app
+
+# Sitemaps
+Sitemap: https://keanghor.vercel.app/sitemap.xml
