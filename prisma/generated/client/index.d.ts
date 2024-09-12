@@ -1370,7 +1370,7 @@ export namespace Prisma {
     content: string
     tags: string[]
     createdAt: Date
-    updatedAt: Date
+    updatedAt: Date | null
     _count: BlogCountAggregateOutputType | null
     _min: BlogMinAggregateOutputType | null
     _max: BlogMaxAggregateOutputType | null
@@ -1435,7 +1435,7 @@ export namespace Prisma {
       content: string
       tags: string[]
       createdAt: Date
-      updatedAt: Date
+      updatedAt: Date | null
     }, ExtArgs["result"]["blog"]>
     composites: {}
   }
@@ -5863,7 +5863,7 @@ export namespace Prisma {
     content?: StringFilter<"Blog"> | string
     tags?: StringNullableListFilter<"Blog">
     createdAt?: DateTimeFilter<"Blog"> | Date | string
-    updatedAt?: DateTimeFilter<"Blog"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Blog"> | Date | string | null
   }
 
   export type BlogOrderByWithRelationInput = {
@@ -5874,7 +5874,7 @@ export namespace Prisma {
     content?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
-    updatedAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
   }
 
   export type BlogWhereUniqueInput = Prisma.AtLeast<{
@@ -5888,7 +5888,7 @@ export namespace Prisma {
     content?: StringFilter<"Blog"> | string
     tags?: StringNullableListFilter<"Blog">
     createdAt?: DateTimeFilter<"Blog"> | Date | string
-    updatedAt?: DateTimeFilter<"Blog"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Blog"> | Date | string | null
   }, "id" | "slug">
 
   export type BlogOrderByWithAggregationInput = {
@@ -5899,7 +5899,7 @@ export namespace Prisma {
     content?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
-    updatedAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: BlogCountOrderByAggregateInput
     _max?: BlogMaxOrderByAggregateInput
     _min?: BlogMinOrderByAggregateInput
@@ -5916,7 +5916,7 @@ export namespace Prisma {
     content?: StringWithAggregatesFilter<"Blog"> | string
     tags?: StringNullableListFilter<"Blog">
     createdAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Blog"> | Date | string | null
   }
 
   export type TagWhereInput = {
@@ -6121,7 +6121,7 @@ export namespace Prisma {
     content: string
     tags?: BlogCreatetagsInput | string[]
     createdAt?: Date | string
-    updatedAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type BlogUncheckedCreateInput = {
@@ -6132,7 +6132,7 @@ export namespace Prisma {
     content: string
     tags?: BlogCreatetagsInput | string[]
     createdAt?: Date | string
-    updatedAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type BlogUpdateInput = {
@@ -6143,7 +6143,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     tags?: BlogUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type BlogUncheckedUpdateInput = {
@@ -6154,7 +6154,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     tags?: BlogUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type BlogCreateManyInput = {
@@ -6165,7 +6165,7 @@ export namespace Prisma {
     content: string
     tags?: BlogCreatetagsInput | string[]
     createdAt?: Date | string
-    updatedAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type BlogUpdateManyMutationInput = {
@@ -6176,7 +6176,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     tags?: BlogUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type BlogUncheckedUpdateManyInput = {
@@ -6187,7 +6187,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     tags?: BlogUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type TagCreateInput = {
@@ -6438,6 +6438,17 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -6522,6 +6533,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type TagCountOrderByAggregateInput = {
@@ -6642,6 +6667,10 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type ProjectCreatetechnologiesInput = {
     set: string[]
   }
@@ -6746,6 +6775,17 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6814,6 +6854,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type ContactCreateWithoutAddressInput = {

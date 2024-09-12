@@ -10,7 +10,7 @@ export interface Blog {
 }
 
 export interface Project {
-  id: string;
+  id?: string;
   title: string;
   description?: string | null; // Allow undefined
   cover?: string | null;
