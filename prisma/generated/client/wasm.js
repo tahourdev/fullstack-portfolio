@@ -139,12 +139,12 @@ exports.Prisma.ProjectScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  cover: 'cover',
   link: 'link',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   technologies: 'technologies',
-  githubLink: 'githubLink'
+  githubLink: 'githubLink',
+  cover: 'cover',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.AddressScalarFieldEnum = {
