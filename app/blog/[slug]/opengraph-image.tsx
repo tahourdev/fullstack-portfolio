@@ -4,7 +4,7 @@ import prisma from '@/lib/prisma';
 
 // export const runtime = 'edge';
 
-export const contentType = 'image/webp'
+export const contentType = 'image/png'
 
 // Image generation
 export default async function Image({ params }: { params: { slug: string } }) {
