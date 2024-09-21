@@ -1,15 +1,12 @@
-import BlurFade from '@/components/magicui/blur-fade';
-import { BLUR_FADE_DELAY } from '@/utils/blur_fade_delay';
-
 const AboutContent = () => {
     return (
 
         <section className="mt-[30px] flex flex-col md:flex-row gap-[50px]">
             <div className="md:max-w-[60%] w-full ">
                 <p className="text-foreground-clr leading-7">
-                    <span className="text-primary font-semibold text-xl">Hi there! 👋</span> I&apos;m
+                    <span className="text-primary font-semibold text-xl">Hi there! 👋</span> I&apos;m {' '}
                     <span className="text-primary font-semibold">Keanghor,</span> <br /> a fourth-year undergraduate
-                    student with a <span className=" text-primary">passion for frontend development,</span>{' '}
+                    student with a <span className="text-primary">passion for frontend development,</span>{' '}
                     particularly in React.js. I&apos;m all about{' '}
                     <span className=" text-primary">crafting seamless user experiences</span> and turning ideas into
                     interactive interfaces. Throughout my journey, I&apos;ve{' '}

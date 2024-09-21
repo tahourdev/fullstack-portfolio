@@ -1,4 +1,4 @@
-import React, { cache, lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { RiQuillPenLine } from 'react-icons/ri';
 import prisma from '@/lib/prisma';
 import PaginationComponent from '@/components/pagination/Pagination';

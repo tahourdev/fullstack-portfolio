@@ -10,7 +10,6 @@ import Navigation from '@/components/navigation/Navigation';
 import { Toaster } from '@/components/ui/toaster';
 import Footer from '@/components/footer/Footer';
 import { Card } from '@/components/ui/Card';
-
 import { cn } from '@/lib/utils';
 
 

@@ -12,6 +12,7 @@ import { Card } from '../ui/Card';
 const Header = () => {
     const { setIsMenuShow } = useMenu();
 
+
     return (
         <Card className="sticky top-0 z-20 flex h-[85px] items-center px-[30px] backdrop-blur-md">
             <header className="w-full">

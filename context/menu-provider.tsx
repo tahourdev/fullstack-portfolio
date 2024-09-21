@@ -23,10 +23,10 @@ export const useMenu = (): MenuContextType => {
 interface MenuProviderProps {
     children: ReactNode;
 }
-
 // MenuProvider component to wrap your app and provide modal state
 export const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
     const [isMenuShow, setIsMenuShow] = useState(false);
+
 
     return (
         <MenuContext.Provider value={{ isMenuShow, setIsMenuShow }}>
