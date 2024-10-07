@@ -35,7 +35,8 @@ const BlogContent = ({ image, title, content, tags }: Blog) => {
             </BlurFade>
 
             <h1 className="text-3xl my-8 text-foreground font-semibold">{title}</h1>
-            <article className="prose-code:text-foreground prose prose-a:text-foreground dark:prose-invert prose-h2:text-foreground prose-p:text-foreground prose-h3:text-xl marker:text-foreground">
+            <article
+                className="prose-code:text-foreground prose xxl:prose-2xl prose-a:text-foreground dark:prose-invert prose-h2:text-foreground prose-p:text-foreground prose-h3:text-xl marker:text-foreground">
                 {parse(content)}
             </article>
 

@@ -51,7 +51,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <TooltipProvider delayDuration={0}>
-              <div className='overflow-x-hidden h-screen scrollbar-hide w-full mx-auto max-w-[1720px]'>
+              <div className='overflow-x-hidden h-screen scrollbar-hide w-full mx-auto max-w-[1820px]'>
                 <div className="relative flex w-full justify-center gap-4 p-4">
 
                   <div className="hidden w-full md:block md:max-w-[380px] xl:max-w-[466px]">
