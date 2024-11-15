@@ -284,7 +284,7 @@ interface PersonalInfo {
 }
 
 export const personalInfo: PersonalInfo[] = [
-  { label: 'Name', value: 'Keanghor' },
+  { label: 'Name', value: 'Heng Keanghor' },
   { label: 'Nationality', value: 'Cambodia' },
   { label: 'Phone', value: '(+855)176 073 29' },
   { label: 'Email', value: 'enghourh5@gmail.com' },
