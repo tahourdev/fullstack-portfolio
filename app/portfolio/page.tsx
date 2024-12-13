@@ -7,9 +7,6 @@ import { BLUR_FADE_DELAY } from '@/utils/blur_fade_delay';
 import { Metadata } from 'next';
 import prisma from '@/lib/prisma';
 import PaginationComponent from '@/components/pagination/Pagination';
-import { Project } from '@/types';
-
-
 // Dynamically import PortfolioContent with a fallback loader
 const PortfolioContent = lazy(() => loadingDelay(import('@/app/portfolio/components/PortfolioContent')));
 
@@ -17,7 +14,7 @@ export const metadata: Metadata = {
     title: "Portfolio"
 };
 
-async function fetchProjects(page: number, pageSize: number): Promise<Project[]> {
+async function fetchProjects(page: number, pageSize: number) {
     const skip = (page - 1) * pageSize;
     return prisma.project.findMany({
         orderBy: { createdAt: 'desc' },
@@ -31,11 +28,6 @@ const PortfolioPage = async ({ searchParams }: { searchParams: { page?: string }
     const pageSize = 6;
     const projectCount = await prisma.project.count();
     const orderedProjects = await fetchProjects(page, pageSize);
-
-    // Ensure the type of each project is correctly inferred
-    const transformedProjects: Project[] = orderedProjects.map((project) => ({
-        ...project,
-    }));
 
     return (
         <>
@@ -53,7 +45,7 @@ const PortfolioPage = async ({ searchParams }: { searchParams: { page?: string }
             </BlurFade>
 
             <Suspense fallback={<SkeletonLoading />}>
-                <PortfolioContent projects={transformedProjects} />
+                <PortfolioContent projects={orderedProjects} />
             </Suspense>
             <div className="mt-8">
                 <PaginationComponent

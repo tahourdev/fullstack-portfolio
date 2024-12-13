@@ -24,7 +24,6 @@ async function fetchBlogs(page: number, pageSize: number) {
 
 const BlogPage = async ({ searchParams }: { searchParams: { page?: string } }) => {
     const page = parseInt(searchParams.page || '1', 10);
-
     const pageSize = 6;
     const blogCount = await prisma.blog.count();
     const orderedBlogs = await fetchBlogs(page, pageSize);
